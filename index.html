@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长江第一城，竹海长发生</title>
+    <link rel="stylesheet" href="css/Index.css">
+</head>
+
+<body>
+    <img class="Photo" src="img/SY01.png" alt="">
+    <ul class="box">
+        <li>
+            <a href="ShunanBambooForest.html">
+                <img src="img/SN01.jpg" alt="">
+                <div class="text">
+                    <div class="tip">点击进入</div>
+                    <div class="title">蜀南竹海</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="XingwenStoneSea.html">
+                <img src="img/XW01.jpg" alt="">
+                <div class="text">
+                    <div class="tip">点击进入</div>
+                    <div class="title">兴文石海</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="LizhuangTown.html">
+                <img src="img/LZ01.jpg" alt="">
+                <div class="text">
+                    <div class="tip">点击进入</div>
+                    <div class="title">李庄古镇</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="BowangMountain.html">
+                <img src="img/BW01.jpg" alt="">
+                <div class="text">
+                    <div class="tip">点击进入</div>
+                    <div class="title">僰王山</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="HejiangGate.html">
+                <img src="img/HJ01.jpg" alt="">
+                <div class="text">
+                    <div class="tip">点击进入</div>
+                    <div class="title">合江门</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="CuipingMountain.html">
+                <img src="img/CP01.jpg" alt="">
+                <div class="text">
+                    <div class="tip">点击进入</div>
+                    <div class="title">翠屏山</div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <canvas></canvas>
+    <script>
+        let canvas = document.querySelector('canvas');
+        let context = canvas.getContext('2d');
+
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+
+        canvas.width = w;
+        canvas.height = h;
+
+        let numLeaves = 120;
+        let leaves = [];
+
+        for (let i = 0; i < numLeaves; i++) {
+            leaves.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                length: Math.random() * 10 + 40,
+                width: 7,
+                angle: Math.random() * 150,
+                color: `rgba(0, ${Math.random() * 150 + 50}, 0, ${Math.random() * 0.8 + 0.2})`,
+                speed: Math.random() * 2,
+            });
+        }
+
+        let updateLeaves = () => {
+            for (let i = 0; i < numLeaves; i++) {
+                let leaf = leaves[i];
+                leaf.y += leaf.speed;
+                leaf.x += Math.sin(leaf.angle * Math.PI / 180) * leaf.speed;
+
+                if (leaf.y > h) {
+                    leaf.y = 0;
+                    leaf.x = Math.random() * w;
+                }
+            }
+        };
+
+        let drawLeaves = () => {
+            context.clearRect(0, 0, w, h);
+
+            for (let i = 0; i < numLeaves; i++) {
+                let leaf = leaves[i];
+                context.beginPath();
+                context.fillStyle = leaf.color;
+
+                let tipLength = 10;
+
+                let x2 = leaf.x - leaf.width / 2 * Math.cos(leaf.angle * Math.PI / 180);
+                let y2 = leaf.y - leaf.length * Math.sin(leaf.angle * Math.PI / 180);
+
+                let x3 = leaf.x + leaf.width / 2 * Math.cos(leaf.angle * Math.PI / 180);
+                let y3 = leaf.y - leaf.length * Math.sin(leaf.angle * Math.PI / 180);
+
+                let x4 = leaf.x + tipLength / 2 * Math.cos(leaf.angle * Math.PI / 180 + 180);
+                let y4 = leaf.y + tipLength / 2 * Math.sin(leaf.angle * Math.PI / 180 + 180);
+
+                context.moveTo(leaf.x, leaf.y);
+                context.lineTo(x2, y2);
+                context.lineTo(x4, y4);
+                context.lineTo(x3, y3);
+                context.lineTo(leaf.x, leaf.y);
+
+                context.fill();
+                context.closePath();
+            }
+        };
+
+        let animate = () => {
+            updateLeaves();
+            drawLeaves();
+            requestAnimationFrame(animate);
+        };
+
+        animate();
+    </script>
+</body>
+
+</html>

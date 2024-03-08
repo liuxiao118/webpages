@@ -1,0 +1,185 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    height: 1800px;
+    background-color: #334D34;
+}
+
+.index {
+    background: url(../img/BW06.jpg) no-repeat fixed center;
+    width: 100%;
+    height: 1024px;
+    top: 0;
+}
+
+h1 {
+    position: absolute;
+    top: 40%;
+    font-size: 60px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 20px;
+    color: #fff;
+    animation: fly-in-bottom 1s;
+}
+
+.container {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 800px;
+    display: inline-block;
+}
+
+.screen {
+    margin-top: 10px;
+    margin-right: 23px;
+    width: 490px;
+    border-radius: 20px;
+    border: 4px solid #abd3a8;
+}
+
+.shell {
+    float: right;
+    width: 60%;
+    height: 800px;
+    display: flex;
+}
+
+.box {
+    flex: 1;
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
+    border-radius: 20px;
+    border: 5px solid #abd3a8;
+    background-color: #a9baa7;
+}
+
+.title {
+    margin-top: 20px;
+    font-family: 'modern_no._20regular', serif;
+    height: 50px;
+    width: 37%;
+    font-size: 30px;
+    letter-spacing: 15px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+}
+
+.text {
+    float: left;
+    font-family: 'modern_no._20regular', serif;
+    height: 289px;
+    width: 37%;
+    font-size: 17px;
+    letter-spacing: 5px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+.box>img {
+    width: 200%;
+    height: 95%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.box>span {
+    font: 200 20px bold;
+    font-family: 'modern_no._20regular', serif;
+    text-align: center;
+    height: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover {
+    flex-basis: 40%;
+}
+
+.box:hover>img {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    opacity: 0;
+}
+
+/* 当页面滚动到一定位置时，为内容元素添加show类名，显示出来 */
+.show {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+@keyframes fly-in-left {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fly-in-right {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fly-in-bottom {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.start {
+    top: 200%;
+    right: 50px;
+    background: linear-gradient(to right bottom,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1));
+    height: 50px;
+    line-height: 40px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px;
+    position: absolute;
+}
+
+.name {
+    color: #cac6c6;
+    font-size: 25px;
+}
+
+.link {
+    text-decoration: none;
+    color: #FFF;
+}

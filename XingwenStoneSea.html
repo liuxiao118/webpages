@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>兴文石海</title>
+  <link rel="stylesheet" href="css/XW.css">
+</head>
+
+<body>
+  <section class="section-1">
+    <img src="img/XW1.jpg" id="bg">
+    <img src="img/XW2.png" id="yun">
+    <img src="img/XW3.png" id="up">
+    <img src="img/XW4.png" id="down">
+    <h1 id="text">宜宾·兴文石海<br>Xingwen Stone Sea</h1>
+
+  </section>
+
+  <section class="section-2">
+    <div class="content">
+      <h1 id="title">风景简介</h1>
+      <p class="text_content">
+        兴文石海，位于四川省宜宾市兴文县的一处，世界地质公园<br />
+        国家AAAA级旅游景区，占地面积约156平方千米。它是由距今4.9<br />
+        亿年至2.5亿年的碳酸盐地层形成的喀斯特地貌，保存了丰富的海<br />
+        相古生物化石和沉积相标志。它是国内发现和研究天坑最早的地<br />
+        方，也是研究西南地区喀斯特地貌的重要地区。兴文石海有四个<br />
+        园区，分别是小岩湾、僰王山、太安石林和凌霄城。其中，小岩<br />
+        湾园区以天泉洞为代表，是中国天然游览长度最大的溶洞，已探<br />
+        测长度为10.5千米，洞内景观千姿百态，令人惊叹。僰王山园区<br />
+        以自然生态著称，有峡谷、瀑布、湖泊、溶洞、僰人悬棺等多种<br />
+        地质遗迹景观，还有神秘独特的古僰人历史文化和原生态苗族风<br />
+        情。太安石林园区是形成于距今4.9亿年的奥陶纪的古石林，有千<br />
+        年银杏、溶洞群、翠竹林海相伴相生，是一处养生胜地。凌霄城<br />
+        园区是桫椤树掩映着的凌霄僰人遗址，是古代僰人的居住地，也<br />
+        是兴文石海的发源地。
+      </p>
+    </div>
+    <a class="link" href="index.html">
+      <div class="start">
+        <div class="name">Back</div>
+      </div>
+    </a>
+    <div class="carousel"> <!-- 轮播图容器 -->
+      <!-- 轮播图图片列表 -->
+      <ul>
+        <!-- 轮播图图片列表项 -->
+        <li><img src="img/XW02.jpg" alt="image1"></li>
+        <li><img src="img/XW03.jpg" alt="image2"></li>
+        <li><img src="img/XW04.jpg" alt="image4"></li>
+        <li><img src="img/XW05.jpg" alt="image5"></li>
+      </ul>
+      <!-- 轮播图小圆点列表 -->
+      <ol>
+        <!-- 轮播图小圆点列表项 -->
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+      <!-- 轮播图左右按钮 -->
+      <span class="btn prev">
+        < </span>
+          <span class="btn next"> ></span>
+    </div>
+    <div>
+
+    </div>
+  </section>
+  <script type="text/javascript">
+    let bg = document.getElementById("bg");
+    let yun = document.getElementById("yun");
+    let up = document.getElementById("up");
+    let down = document.getElementById("down");
+    let text = document.getElementById("text");
+
+    let currentSlide = 0;
+    let slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.style.opacity = 1;
+        } else {
+          slide.style.opacity = 0;
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+
+    window.addEventListener("scroll", function () {
+      var value = window.scrollY;
+
+      bg.style.top = value * 0.5 + 'px';
+      yun.style.left = value * 0.5 + 'px';
+      up.style.top = -value * 0.15 + 'px';
+      down.style.top = value * 0.15 + 'px';
+      text.style.top = value * 1 + 'px';
+    })
+    // 获取所有的内容元素
+    var contents = document.querySelectorAll(".content");
+
+    // 监听页面的滚动事件
+    window.addEventListener("scroll", function () {
+      // 获取页面滚动的距离
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+      // 遍历所有的内容元素
+      for (var i = 0; i < contents.length; i++) {
+        // 获取当前元素距离顶部的距离
+        var offsetTop = contents[i].offsetTop;
+
+        // 如果页面滚动的距离大于等于元素距离顶部的距离，就为元素添加show类名，否则移除show类名
+        if (scrollTop >= offsetTop) {
+          contents[i].classList.add("show");
+        } else {
+          contents[i].classList.remove("show");
+        }
+      }
+    });
+  </script>
+  <script>
+
+  </script>
+  <script>
+    // 获取轮播图容器
+    var carousel = document.querySelector(".carousel");
+
+    var ul = carousel.querySelector("ul");// 获取轮播图图片列表
+
+    var lis = ul.querySelectorAll("li");// 获取轮播图图片列表项
+
+    // 获取轮播图小圆点列表
+    var ol = carousel.querySelector("ol");
+    // 获取轮播图小圆点列表项
+    var ols = ol.querySelectorAll("li");
+
+    var prev = carousel.querySelector(".prev");// 获取轮播图左右按钮
+    var next = carousel.querySelector(".next");
+
+
+    var index = 0;// 定义轮播图图片的索引
+
+
+    var width = carousel.offsetWidth; // 定义轮播图图片的宽度
+
+
+    var length = lis.length;// 定义轮播图图片的数量
+
+
+    var timer = null;// 定义轮播图图片的定时器
+
+    // 定义轮播图图片的切换函数
+    function change() {
+      // 设置轮播图图片列表的左偏移量
+      ul.style.left = -index * width + "px";
+      // 遍历轮播图小圆点列表项
+      for (var i = 0; i < length; i++) {
+        // 移除轮播图小圆点列表项的激活状态
+        ols[i].classList.remove("active");
+      }
+      // 添加轮播图小圆点列表项的激活状态
+      ols[index].classList.add("active");
+    }
+
+    // 定义轮播图图片的自动播放函数
+    function autoPlay() {
+      // 设置轮播图图片的定时器
+      timer = setInterval(function () {
+        // 轮播图图片的索引自增
+        index++;
+        // 判断轮播图图片的索引是否超出范围
+        if (index >= length) {
+          // 轮播图图片的索引重置为0
+          index = 0;
+        }
+        // 调用轮播图图片的切换函数
+        change();
+      }, 3000); // 速度为3秒
+    }
+
+    // 调用轮播图图片的自动播放函数
+    autoPlay();
+
+    // 监听轮播图容器的鼠标移入事件
+    carousel.addEventListener("mouseover", function () {
+      // 清除轮播图图片的定时器
+      clearInterval(timer);
+      // 显示轮播图左右按钮
+      prev.style.display = "block";
+      next.style.display = "block";
+    });
+
+    // 监听轮播图容器的鼠标移出事件
+    carousel.addEventListener("mouseout", function () {
+      // 调用轮播图图片的自动播放函数
+      autoPlay();
+      // 隐藏轮播图左右按钮
+      prev.style.display = "none";
+      next.style.display = "none";
+    });
+
+    // 监听轮播图左按钮的点击事件
+    prev.addEventListener("click", function () {
+      // 轮播图图片的索引自减
+      index--;
+      // 判断轮播图图片的索引是否超出范围
+      if (index < 0) {
+        // 轮播图图片的索引重置为最大值
+        index = length - 1;
+      }
+      change();
+    });
+
+
+    // 监听轮播图右按钮的点击事件
+    next.addEventListener("click", function () {
+      // 轮播图图片的索引自增
+      index++;
+
+      // 判断轮播图图片的索引是否超出范围
+      if (index >= length) {
+        // 轮播图图片的索引重置为0
+        index = 0;
+      }
+
+      change();
+    });
+
+    // 遍历轮播图小圆点列表项
+    for (var i = 0; i < length; i++) {
+      // 给轮播图小圆点列表项添加一个自定义属性，用于存储它的索引
+      ols[i].setAttribute("data-index", i);
+      // 监听轮播图小圆点列表项的点击事件
+      ols[i].addEventListener("click", function () {
+        // 获取轮播图小圆点列表项的自定义属性
+        var index = this.getAttribute("data-index");
+        // 调用轮播图图片的切换函数
+        change();
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #4E9ACE;
+  min-height: 1500px;
+}
+
+.section-1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+  background: linear-gradient(to top, rgb(185, 249, 245), transparent);
+  mix-blend-mode: color;
+}
+
+.section-1 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  /* z-index: 10000; */
+}
+
+#text {
+  position: relative;
+  color: #fff;
+  font-size: 6em;
+  z-index: 1;
+  align-content: center;
+  align-self: auto;
+  text-align: center;
+
+  animation: fly-in-bottom 1s;
+  letter-spacing: 0.1em;
+}
+
+#down {
+  z-index: 2;
+}
+
+
+/* 第二部分 */
+.content {
+  opacity: 0;
+}
+
+/* 当页面滚动到一定位置时，为内容元素添加show类名，显示出来 */
+.show {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+@keyframes fly-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fly-in-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fly-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.section-2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+/* 文字部分 */
+#title {
+  position: relative;
+  color: #fff;
+  /* color: #100808; */
+  font-size: 2em;
+  z-index: 1;
+  align-content: flex-start;
+  align-self: auto;
+  text-align: left;
+  animation: fly-in-left 1s;
+  margin-top: 2%;
+  margin-left: 40%;
+  font-family: 'modern_no._20regular', serif;
+  letter-spacing: 0.3em;
+}
+
+.content {
+  width: 45%;
+  height: 48%;
+  margin-left: 10%;
+  margin-top: 5%;
+  border-radius: 20px;
+  position: absolute;
+  overflow: hidden;
+  float: left;
+  left: 2%;
+  right: 2%;
+  top: 5%;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fly-in-bottom 1s;
+}
+
+.text_content {
+  text-align: left;
+  margin-left: 6%;
+  color: #fff;
+  font-size: 20px;
+  position: relative;
+  text-indent: 2em;
+  font-family: 'modern_no._20regular', serif;
+  letter-spacing: 0.1em;
+  top: 5%;
+}
+
+
+/* 定义轮播图容器的样式 */
+.carousel {
+  width: 30%;
+  height: 50%;
+  margin-top: 5%;
+  margin-right: 7%;
+  position: relative;
+  overflow: hidden;
+  float: right;
+  right: 5%;
+  top: 5%;
+  animation: fly-in-right 1s;
+}
+
+/* 定义轮播图图片的样式 */
+.carousel img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* display: inline-block; */
+}
+
+/* 定义轮播图图片列表的样式 */
+.carousel ul {
+  width: 400%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: armenian;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  transition: left 0.5s;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 定义轮播图图片列表项的样式 */
+.carousel li {
+  width: 400%;
+  height: 100%;
+  float: left;
+}
+
+/* 定义轮播图小圆点的样式 */
+.carousel ol {
+  height: 20px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+}
+
+/* 定义轮播图小圆点项的样式 */
+.carousel ol li {
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  background: rgb(255, 255, 255, 0.5);
+  border-radius: 50%;
+  left: 10px;
+  cursor: pointer;
+}
+
+/* 定义轮播图小圆点项的激活状态的样式 */
+.carousel ol li.active {
+  background: rgb(83, 77, 77);
+}
+
+/* 定义轮播图左右按钮的样式 */
+.carousel .btn {
+  width: 40px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* 定义轮播图左按钮的样式 */
+.carousel .prev {
+  left: 0;
+}
+
+/* 定义轮播图右按钮的样式 */
+.carousel .next {
+  right: 0;
+}
+
+.content-section {
+  margin-bottom: 1px;
+  /* 你想要的底部间距 */
+}
+
+.section-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+}
+
+.start {
+  top: 80%;
+  right: 40px;
+  background: linear-gradient(to right bottom,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.1));
+  height: 80px;
+  line-height: 40px;
+  width: 80px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px;
+  position: absolute;
+}
+
+.name {
+  color: #cac6c6;
+  font-size: 25px;
+}
+
+.link {
+  text-decoration: none;
+  color: #FFF;
+}

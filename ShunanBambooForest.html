@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蜀南竹海</title>
+    <link rel="stylesheet" href="css/SN.css">
+</head>
+
+<body>
+    <h1>宜宾·蜀南竹海<br />shunan Bamboo</h1>
+    <div class="background"><span>Forest</span></div>
+    <a class="link" href="index.html">
+        <div class="start">
+            <div class="name">Back</div>
+        </div>
+    </a>
+    <h2>
+        &nbsp;&nbsp;蜀南竹海，坐落在宜宾怀远山脉腹地，是一片如诗如画的竹海仙境。翠绿的竹海覆盖山川，
+        仿若翠翠的海浪在山间荡漾。这片自然奇观，以其丰富多样的竹类植被而闻名，青竹、黄
+        竹、红竹等交织成一幅色彩斑斓的画卷。<br />
+        &nbsp;&nbsp;蜀南竹海，不仅是一处自然风光胜地，更是竹文化的传承之地。在这片宛如翠绿海洋的土
+        地上，人们仿佛能感受到古老竹文化的悠远，竹编艺术、竹韵文化无不展现出浓厚的地方特色。<br />
+        &nbsp;&nbsp;这里，大自然与人文交融共生，为游人奉献了一场视觉、听觉和心灵的饕餮盛宴。蜀南竹
+        海,是大自然的馈赠，也是人类与自然和谐相处的写意之地。<br />
+    </h2>
+    <script>
+        const background = document.querySelector(".background")
+
+        document.addEventListener('scroll', () => {
+            const scrollY = window.scrollY
+
+            if (scrollY !== 0) {
+                background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+            } else {
+                background.style.backgroundPosition = ''
+            }
+        })
+    </script>
+</body>
+
+</html>

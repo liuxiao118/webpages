@@ -1,0 +1,88 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+    overflow-x: hidden;
+}
+
+.background {
+    background-image: url("../img/SN02.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 200vh;
+    font: 900 25rem '';
+    line-height: 100vh;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background::before {
+    content: '';
+    background-size: cover;
+    background-image: inherit;
+    background-position: 50% 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -99;
+}
+
+h1 {
+    position: absolute;
+    top: 80px;
+    font-size: 45px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 20px;
+    color: #fff;
+}
+
+h2 {
+    position: absolute;
+    font-family: 'modern_no._20regular', serif;
+    letter-spacing: 7px;
+    font-size: 18px;
+    font-family: 楷书, serif;
+    top: 100vh;
+    height: 260px;
+    ;
+    width: 700px;
+    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.start {
+    top: 185%;
+    right: 50px;
+    background: linear-gradient(to right bottom,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1));
+    height: 50px;
+    line-height: 40px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px;
+    position: absolute;
+}
+
+.name {
+    color: #cac6c6;
+    font-size: 25px;
+}
+
+.link {
+    text-decoration: none;
+    color: #FFF;
+}

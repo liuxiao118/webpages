@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合江门</title>
+  <link rel="stylesheet" href="css/HJ.css">
+</head>
+
+<body>
+  <h1 class="title">宜宾·合江门<br />Hejiang Gate</h1>
+  <a class="link" href="index.html">
+    <div class="start">
+      <div class="name">Back</div>
+    </div>
+  </a>
+  <ul>
+    <li><img src="img/HJ02.jpg" alt=""></li>
+    <li><img src="img/HJ03.jpg" alt=""></li>
+  </ul>
+  <div class="text1">
+    <h2 class="title2">基本介绍</h2>
+    <p class="text">
+      &nbsp;&nbsp;合江门，位于四川省宜宾市合江县，是一座具有悠久历史和独特魅力的小城。
+      合江门背靠怀远山脉，面临沱江水域，风光秀丽。这个小城以其宁静、古老
+      的特色吸引着游客，仿佛是一幅时光静止的水墨画。合江门古城的建筑风格
+      到历史的长廊中。在古城的每个角落，都能感受到岁月的沉淀和文化的积淀。<br />
+      &nbsp;&nbsp;沱江水悠悠流淌，映照着古城的宁静和祥和。合江门的河滨风光宜人，成为
+      居民和游客休闲散步、欣赏风景的理想场所。
+    </p>
+  </div>
+  <div class="text2">
+    <h2 class="title2">地理人文</h2>
+    <p class="text">
+      &nbsp;&nbsp;合江门，是宜宾的一大型码头，也是长江、金沙江、岷江三江交汇的地方。
+      它有着两千多年的历史文化，曾是宜宾主要的水陆码头之一。站在合江门处
+      ，左面缓缓流淌、水色如黛的江是岷江，右面翻花鼓浪、水色泛黄的江是金
+      沙江。两江在此拥抱，合流成为举世闻名的长江，继续东流，改称长江，注
+      入东海。<br />
+      &nbsp;&nbsp;每当中秋之夜，明月当空高照，江口风平浪静，江中双月辉映，一
+      明一暗，是世间少有的景象，称为“三江口吻月”。因此地是三江交汇之处，
+      故合江门又称三江口。
+    </p>
+  </div>
+  <!-- partial -->
+  <script>
+    /* 定义 body， css 选择 body 部分 */
+    const body = document.querySelector("body");
+
+    /* 定义 lis， css 选择 li 这一整体部分 */
+    const lis = document.querySelectorAll("li")
+
+    /* 事件监听，窗口滑动 */
+    window.addEventListener("scroll", () => { onscrl(); }, false);
+
+    onscrl(false);
+    function onscrl() {
+      const s = (body.scrollHeight - window.innerHeight) / 2 + 560;
+
+      lis.forEach((li, ix) => {
+        const ang = ((this.scrollY - (s * (ix - 1))) * 360 / (s * 2)) - 180;
+
+        li.style.setProperty('--ang',
+          Math.max(-180, Math.min(180, ang)) + 'deg'
+        );
+      });
+    }
+    // 获取所有的内容元素
+    var contents = document.querySelectorAll(".content");
+    // 监听页面的滚动事件
+    window.addEventListener("scroll", function () {
+      // 获取页面滚动的距离
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      // 遍历所有的内容元素
+      for (var i = 0; i < contents.length; i++) {
+        // 获取当前元素距离顶部的距离
+        var offsetTop = contents[i].offsetTop;
+        // 如果页面滚动的距离大于等于元素距离顶部的距离，就为元素添加show类名，否则移除show类名
+        if (scrollTop >= offsetTop) {
+          contents[i].classList.add("show");
+        } else {
+          contents[i].classList.remove("show");
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

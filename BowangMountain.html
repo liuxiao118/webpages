@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>僰王山</title>
+    <link rel="stylesheet" href="css/BW.css">
+</head>
+
+<body>
+    <div class="index">
+        <h1>宜宾·僰王山<br />Bowang Mountain</h1>
+    </div>
+    <div class="container">
+        <video controls="controls" class="screen">
+            <source src="mov/BW.mp4" type="video/mp4">
+        </video>
+        <div class="shell">
+            <div class="box">
+                <img src="img/BW02.jpg">
+                <span>黑帽顶</span>
+            </div>
+            <div class="box">
+                <img src="img/BW03.jpg">
+                <span>飞雾洞</span>
+            </div>
+            <div class="box">
+                <img src="img/BW04.jpg">
+                <span>唤雨岩</span>
+            </div>
+            <div class="box">
+                <img src="img/BW05.jpg">
+                <span>飞瀑布</span>
+            </div>
+        </div>
+        <a class="link" href="index.html">
+            <div class="start">
+                <div class="name">Back</div>
+            </div>
+        </a>
+        <h2 class="title">基本介绍</h2>
+        <p class="text">
+            &nbsp;&nbsp;僰王山是古僰民族的故居，僰民族是一支神秘<br />
+            古老的南方少数民族，曾在北宋时期起兵反抗中央<br />
+            政府，后来被平定并逐渐消亡。僰王山上有许多古<br />
+            僰人的遗迹，如大小寨门、落魂谷、仰天窝地下迷<br />
+            宫等，可以探寻古僰人的文明和生活。僰王山也是<br />
+            世界地质公园的一部分，以喀斯特地貌为主，有山<br />
+            、谷、溪、瀑、湖、洞、石、竹等多种景观，其中<br />
+            最著名的有黑帽顶、飞雾洞、唤雨岩、以及众多瀑<br />
+            布。僰王山不仅风景秀丽，还有深厚的历史文化底<br />
+            蕴，是探寻古僰人文明和欣赏自然美景的好去处。
+        </p>
+    </div>
+    <script>
+        var contents = document.querySelectorAll(".content");
+        window.addEventListener("scroll", function () {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            for (var i = 0; i < contents.length; i++) {
+                var offsetTop = contents[i].offsetTop;
+                if (scrollTop >= offsetTop) {
+                    contents[i].classList.add("show");
+                } else {
+                    contents[i].classList.remove("show");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
